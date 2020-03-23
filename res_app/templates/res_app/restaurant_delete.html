@@ -1,0 +1,14 @@
+{% extends 'res_app/base.html' %}
+{% block title %}
+    Delete  restaurant
+{% endblock %}
+{% block body %}
+    <div class="col-lg-6 offset-3">
+    <form id="item_form" method="post">
+        {% csrf_token %}
+        Are you sure about delete "{{ restaurant }}"?
+        <input type="submit" value="Ok"/>
+        <a href="{% url 'res_app:restaurant_update' restaurant.id %}">Cancel</a>
+    </form>
+    </div>
+{% endblock %}

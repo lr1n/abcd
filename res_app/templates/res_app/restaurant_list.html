@@ -1,0 +1,45 @@
+{% extends 'res_app/base.html' %}
+{% load static %}
+{% block title %}
+List of restaurants
+{% endblock %}
+{% block body %}
+    <div  class="col-lg-12 text-center">
+    <a style="font-family: Chilanka;font-size: 30px; color: blueviolet" href="{% url 'res_app:index' %}">Home page</a>
+    </div>
+    {% include 'res_app/pagination.html' with request=request page_obj=page_obj paginator=paginator %}
+    {% for restaurant in restaurant_list %}
+        <div class="card col-lg-8 " style="width: 18rem">
+          <div class="card-body">
+              <h5 class="card-title">
+                  <a href="{% url 'res_app:restaurant_detail' restaurant.id %}">
+                      {{ restaurant.name }}
+                  </a>
+              </h5>
+              <p class="card-text">
+              <p>
+                  Cuisine: {{ restaurant.get_cuisine_display }}
+              </p>
+              <p>
+                  Address: {{ restaurant.address }}
+              </p>
+              <p>
+                  Work from: {{ restaurant.work_from }}
+              </p>
+              <p>
+                  Work to: {{ restaurant.work_to }}
+              </p>
+              {% if restaurant.image %}
+                  <p>
+                  <img src="{{ restaurant.image.url }}" style="max-width: 14rem">
+                  </p>
+                  {% else %}
+                  <p>
+                  Image not found
+                  </p>
+              {% endif %}
+              </p>
+          </div>
+        </div>
+    {% endfor %}
+{% endblock %}

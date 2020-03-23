@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crazy delivery</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+{% block body %}
+    <h1 align="center" style="color: brown; font-family: Chilanka">
+    WELCOME TO CRAZY DELIVERY
+    </h1>
+    <a style="font-family: Chilanka;font-size: 30px; color: chocolate" href="{% url 'res_app:restaurant_list' %}">List of restaurants</a>
+    <a style="font-family: Chilanka;font-size: 30px; color: darkblue; position: absolute; left: 300px" href="{% url 'res_app:food_list' %}">List of food</a>
+    <p>
+    <a style="font-family: Chilanka;font-size: 30px; color: slateblue" href="{% url 'res_app:restaurant_create' %}">Create restaurant</a>
+    <a style="font-family: Chilanka;font-size: 30px; color: darkgreen; position: absolute; left: 300px" href="{% url 'res_app:food_create' %}">Create food</a>
+    </p>
+{% endblock %}
+</body>
+</html>

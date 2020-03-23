@@ -1,0 +1,12 @@
+{% extends 'res_app/base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="col-lg-6 offset-3">
+    <form method="post">
+        {% csrf_token %}
+        Are you sure about delete "{{ food }}"?
+        <input type="submit" value="Ok">
+        <a href="{% url 'res_app:food_update' food.id %}">Cancel</a>
+    </form>
+    </div>
+{% endblock %}

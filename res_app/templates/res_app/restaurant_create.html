@@ -1,0 +1,29 @@
+{% extends 'res_app/base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="col-lg-3">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <p>
+            <button type="submit">
+                {% if form.instance.id %}
+                    Update
+                    {% else %}
+                    Save
+                {% endif %}
+            </button>
+        </p>
+    </form>
+    {% if form.instance.image %}
+        <div>
+        <img src="{{ form.instance.image.url }}">
+        </div>
+    {% endif %}
+    {% if form.instance.id %}
+        <a href="{% url 'res_app:restaurant_delete' form.instance.id %}">
+        Delete
+        </a>
+    {% endif %}
+    </div>
+{% endblock %}

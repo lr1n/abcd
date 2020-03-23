@@ -1,0 +1,17 @@
+{% extends 'res_app/base.html' %}
+{% block title %}
+    Details
+{% endblock %}
+{% block body %}
+    <div class="col-lg-4 offset-4">
+    <a href="{% url 'res_app:food_update' food.id %}">
+        {{ food }}
+    </a>
+    </div>
+{#    <p class="price">Price: $ {{ food.price }}</p>#}
+{#    <form action="{% url 'cart:cart_add' food.id %}" method="post">#}
+{#    {{ cart_food_form }}#}
+{#    {% csrf_token %}#}
+{#    <input type="submit" value="Add to cart">#}
+{#    </form>#}
+{% endblock %}

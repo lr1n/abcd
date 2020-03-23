@@ -1,0 +1,10 @@
+{% extends 'res_app/base.html' %}
+{% load crispy_forms_tags %}
+{% block body %}
+    <div class="col-lg-4">
+    {% if message %}
+        {{ message }}
+    {% endif %}
+    {% crispy restaurant_form %}
+    </div>
+{% endblock %}
