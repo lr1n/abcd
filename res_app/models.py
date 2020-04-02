@@ -1,4 +1,5 @@
 from django.db import models
+from djmoney.models.fields import MoneyField
 from PIL import Image
 from django.urls import reverse
 
@@ -89,7 +90,7 @@ class Food(models.Model):
     type_of_food = models.CharField(
         choices=TYPE_OF_FOOD,
         max_length=300,
-        verbose_name='Menu',
+        verbose_name='Dish',
     )
 
     restaurant = models.ForeignKey(
@@ -98,10 +99,11 @@ class Food(models.Model):
         verbose_name='Restaurant'
     )
 
-    price = models.DecimalField(
+    price = MoneyField(
         max_digits=10,
         decimal_places=2,
         verbose_name='Price',
+        default_currency='USD',
     )
 
     SAUCE = (
@@ -116,7 +118,9 @@ class Food(models.Model):
     sauce = models.CharField(
         choices=SAUCE,
         max_length=200,
-        verbose_name='Sauce'
+        verbose_name='Sauce',
+        blank=True,
+        null=True,
     )
 
     image = models.ImageField(

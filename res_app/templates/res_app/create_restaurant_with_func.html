@@ -6,5 +6,15 @@
         {{ message }}
     {% endif %}
     {% crispy restaurant_form %}
+        {% if restaurant_form.instance.image %}
+        <div>
+        <img src="{{ restaurant_form.instance.image.url }}">
+        </div>
+    {% endif %}
+    {% if restaurant_form.instance.id %}
+        <a href="{% url 'res_app:restaurant_delete' restaurant_form.instance.id %}">
+        Delete
+        </a>
+    {% endif %}
     </div>
 {% endblock %}

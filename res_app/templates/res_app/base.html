@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +8,58 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="col-lg-12">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'res_app:index' %}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Dropdown
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+
+            </ul>
+            <ul class="navbar-nav mr-left">
+              <li class="nav-item left">
+                <a class="nav-link " href="{% url 'users_app:logout' %}"
+                   tabindex="-1" aria-disabled="true">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+{% load crispy_forms_tags %}
 {% block body %}
     <h1 align="center" style="color: brown; font-family: Chilanka">
     WELCOME TO CRAZY DELIVERY
     </h1>
+{#    <form style="position: absolute; right: 1px; top: 1px" class="col-lg-8" method="post"#}
+{#          action="{% url 'users_app:logout' %}">#}
+{#        {% csrf_token %}#}
+{#        {{ form|crispy }}#}
+{#        <p><button id="sub_btn" name="submit" style="position: absolute; right: 1px; top: 1px; font-family: Chilanka; font-size: 30px; color: maroon">Log Out</button></p>#}
+{#        <input type="hidden" name="text" value="{{ request.GET.next }}">#}
+    </form>
     <a style="font-family: Chilanka;font-size: 30px; color: chocolate" href="{% url 'res_app:restaurant_list' %}">List of restaurants</a>
     <a style="font-family: Chilanka;font-size: 30px; color: darkblue; position: absolute; left: 300px" href="{% url 'res_app:food_list' %}">List of food</a>
     <p>

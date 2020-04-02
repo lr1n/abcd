@@ -1,4 +1,5 @@
 {% extends 'res_app/base.html' %}
+{% load crispy_forms_tags %}
 {% load static %}
 {% block title %}
     Authorization page
@@ -8,11 +9,11 @@
     {% if form.errors %}
         <p>Wrong login or password</p>
     {% endif %}
-    <form id="login_form" method="post"
+    <form style="font-family: Chilanka; position: center; left: 80px; font-size: 30px" class="col-lg-8" method="post"
           action="{% url 'users_app:login' %}">
         {% csrf_token %}
-        {{ form }}
-        <p><button id="sub_btn" name="submit">En</button></p>
+        {{ form|crispy }}
+        <p><button id="sub_btn" name="submit" style="color: deeppink; font-family: Chilanka; position: absolute; left: 140px">Log In</button></p>
         <input type="hidden" name="text" value="{{ request.GET.next }}">
     </form>
     </div>
